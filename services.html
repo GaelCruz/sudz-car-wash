@@ -16,6 +16,7 @@
       --blue-hover-trans: #3b3a3a18;
       --border-white-bg: #B6B3B3;
 
+      --price-margin: 30px 0px 30px 0px;
     }
 
     *{
@@ -130,6 +131,7 @@
 
     /* CATEGORIES */
     .categories {
+      margin-top: 2rem;
       display: flex;
       padding: 10px;
       justify-content: center;
@@ -161,7 +163,17 @@
 
 
     /* CAR SELECTION */
+    .car-type{
+      text-align: center;
+      font-size: 1.75rem;
+    }
+    .car-selection-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .car-selection {
+      margin-top: 2rem;
       display: flex;
       justify-content: space-around;
       list-style: none;
@@ -185,23 +197,74 @@
 
 
 
+    /* SERVICES SELECTION */
+    .prices-wrapper{
+      margin-top: 2rem;
+      display: flex;
+      align-items:stretch;
+      flex-wrap: wrap;
+      justify-content:space-around;
+    }
     .price-card {
-      width: 175px;
       box-shadow: 0px 0px 5px #a2a2a2;
       border-radius: 1rem;
+      margin: 1rem;
+      width: 23.5rem;
+      padding-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
+    .price-content{
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
     .service-name {
       text-align: center;
       background-color: var(--red-color);
       color: white;
       padding: 1rem;
       border-radius: 1rem 1rem 0rem 0rem;
+      padding: 30px 0px 30px 0px;
+      margin: 0px 0px 0px 0px;
+    }
+    .price-tag{
+      color: var(--blue-color);
+      text-align: center;
+      font-weight: bold;
+      font-size: 3rem;
+      padding: var(--price-margin);
+      margin:0;
+    }
+    .price-ul-wrapper{
+      display: flex;
+      justify-content:center;
+      padding: .2rem;
+      width: 100%;
+    }
+    .price-ul{
+      height: 3px;
+      background-color: var(--blue-color);
+      width: 80%;
+    }
+    .price-description-wrapper{
+      display: flex;
+      justify-content: center;
+      padding: 1rem 1rem 1rem 1rem;
+    }
+    .price-description{
+      color: var(--blue-color);
+      font-size: 1.5rem;
+      font-weight:500;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
   </style>
 
   <section>
-
     <!-- FOR THE CHOOSE LOCATION AND FIND LOCATION FUNCTIONS -->
     <div class="header">
       <div class="location-finder-container">
@@ -235,27 +298,79 @@
 
 
     <!-- CAR SELECTION -->
-     <section>
+    <section>
       <div class="car-selection">
-        <div class="car-slot" id="sedan-card" style="width: 175px; height: 175px;"></div>
-        <div class="car-slot" id="crossover-card" style="width: 175px; height: 175px;"></div>
-        <div class="car-slot" id="suv-card" style="width: 175px; height: 175px;"></div>
-        <div class="car-slot" id="large-truck-card" style="width: 175px; height: 175px;"></div>
-        <div class="car-slot" id="commercial-card" style="width: 175px; height: 175px;"></div> 
+        <div class="car-selection-container">
+          <h1 class="car-type">Sedans</h1>
+          <div class="car-slot" id="sedan-card" style="width: 175px; height: 175px;"></div>
+        </div>
+        <div class="car-selection-container">
+          <h1 class="car-type">Crossovers</h1>
+          <div class="car-slot" id="crossover-card" style="width: 175px; height: 175px;"></div>
+        </div>
+        <div class="car-selection-container">
+          <h1 class="car-type">SUVs</h1>
+          <div class="car-slot" id="suv-card" style="width: 175px; height: 175px;"></div>
+        </div>
+        <div class="car-selection-container">
+          <h1 class="car-type">Large Trucks</h1>
+          <div class="car-slot" id="large-truck-card" style="width: 175px; height: 175px;"></div>
+        </div>
+        <div class="car-selection-container">
+          <h1 class="car-type">Commercial</h1>
+          <div class="car-slot" id="commercial-card" style="width: 175px; height: 175px;"></div>
+        </div>
       </div>
-     </section>
+    </section>
 
 
 
      <!-- PRICES -->
-     <section class="prices-wrapper">
+    <section class="prices-wrapper">
+
+      <!-- ROOKIE SEDAN SERVICE CARD -->
       <div class="price-card">
         <h2 class="service-name">ROOKIE</h2>
         <div class="price-content">
-          
+          <p class="price-tag">$35.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+          <div class="price-description-wrapper">
+            <ul class="price-description">
+              <li>Basic Exterior Wash</li>
+              <li>Interior Vacuum</li>
+              <li>Clean Windows</li>
+              <li>Light dash wipe down</li>
+              <li>Armor All tires</li>
+            </ul>
+          </div>
         </div>
       </div>
-     </section>
+
+       <!-- ROOKIE SEDAN SERVICE CARD -->
+       <div class="price-card">
+        <h2 class="service-name">ALL STAR<br><span class="sub-title">(AKA Q-TIP)</span></h2>
+        <div class="price-content">
+          <p class="price-tag">$35.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+          <div class="price-description-wrapper">
+            <ul class="price-description">
+              <li>Basic Exterior Wash</li>
+              <li>Interior Vacuum</li>
+              <li>Clean Windows</li>
+              <li>Light dash wipe down</li>
+              <li>Armor All tires</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- SERVICE CARD -->
+     
   </section>
 
 
