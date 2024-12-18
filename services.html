@@ -15,8 +15,8 @@
       --red-color: #E82020;
       --blue-hover-trans: #3b3a3a18;
       --border-white-bg: #B6B3B3;
-
-      --price-margin: 30px 0px 30px 0px;
+      --price-margin: 1rem 0rem 1rem 0rem;
+      --pop-plan-color: rgba(236, 236, 90, 0.997);
     }
 
     *{
@@ -190,7 +190,7 @@
       transition: 0.3s ease-in-out;
     }
 
-    #sedan-card {
+    .car-selected {
       border: var(--blue-color) solid;
     }
 
@@ -199,31 +199,33 @@
 
     /* SERVICES SELECTION */
     .prices-wrapper{
+      opacity: 1;
       margin-top: 2rem;
       display: flex;
       align-items:stretch;
-      flex-wrap: wrap;
       justify-content:space-around;
     }
     .price-card {
       box-shadow: 0px 0px 5px #a2a2a2;
       border-radius: 1rem;
       margin: 1rem;
-      width: 23.5rem;
+      width: 18rem;
       padding-bottom: 1rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-evenly;
     }
 
     .price-content{
       flex-grow: 1;
       display: flex;
       flex-direction: column;
+      padding: .5rem;
     }
     .service-name {
       text-align: center;
       background-color: var(--red-color);
+      font-size: 1rem;
       color: white;
       padding: 1rem;
       border-radius: 1rem 1rem 0rem 0rem;
@@ -234,7 +236,7 @@
       color: var(--blue-color);
       text-align: center;
       font-weight: bold;
-      font-size: 3rem;
+      font-size: 2rem;
       padding: var(--price-margin);
       margin:0;
     }
@@ -251,17 +253,36 @@
     }
     .price-description-wrapper{
       display: flex;
-      justify-content: center;
+      justify-content: start;
       padding: 1rem 1rem 1rem 1rem;
     }
     .price-description{
       color: var(--blue-color);
-      font-size: 1.5rem;
+      padding: 0rem 1rem 0rem 1rem;
+      font-size: 1rem;
       font-weight:500;
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
+    #most-pop-plan{
+      position: relative;
+    }
+    .pop-sign{
+      font-size: 1rem;
+      background-color: var(--pop-plan-color);
+      padding: 1rem;
+      border-radius: 1rem 0rem 1rem 0rem;
+      position: absolute;
+      top: -1.75rem;
+      left: -1rem;
+    }
+    .not-selected-service{
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
   </style>
 
   <section>
@@ -326,50 +347,448 @@
 
 
      <!-- PRICES -->
-    <section class="prices-wrapper">
+    <section id="all-silber-services">
 
-      <!-- ROOKIE SEDAN SERVICE CARD -->
-      <div class="price-card">
-        <h2 class="service-name">ROOKIE</h2>
-        <div class="price-content">
-          <p class="price-tag">$35.00</p>
-          <div class="price-ul-wrapper">
-            <div class="price-ul"></div>
+      <!-- SILBER SEDAN SERVICES -->
+      <!-- SILBER SEDAN SERVICES -->
+      <!-- SILBER SEDAN SERVICES -->
+      <!-- SILBER SEDAN SERVICES -->
+      <div class="prices-wrapper" id="silber-sedan-prices">
+
+        <!-- ROOKIE SEDAN SILBER SERVICE CARD -->
+        <div class="price-card">
+          <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$35.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Basic Exterior Wash</li>
+                <li>Interior Vacuum</li>
+                <li>Clean Windows</li>
+                <li>Light dash wipe down</li>
+                <li>Armor All tires</li>
+              </ul>
+            </div>
           </div>
-          <div class="price-description-wrapper">
-            <ul class="price-description">
-              <li>Basic Exterior Wash</li>
-              <li>Interior Vacuum</li>
-              <li>Clean Windows</li>
-              <li>Light dash wipe down</li>
-              <li>Armor All tires</li>
-            </ul>
+        </div>
+  
+         <!-- All STAR SEDAN SILBER SERVICE CARD -->
+         <div id="most-pop-plan" class="price-card">
+          <h2 class="pop-sign">Most Popular</h2>
+          <h2 class="service-name">ALL STAR<br><span class="sub-title">(AKA Q-TIP)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$47.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Includes Rookie package</li>
+                <li>Clean dash</li>
+                <li>Clean console</li>
+                <li>Clean door pockets</li>
+                <li>Clean door jams</li>
+                <li>Clean rubber mats</li>
+                <li>Armor all tires inside and out.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <!-- WASH & WAX SEDAN SILBER SERVICE CARD -->
+        <div class="price-card">
+          <h2 class="service-name">WASH & WAX<br><span class="sub-title">(AKA MINI DETAIL)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$70.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Includes All Star package</li>
+                <li>Hand Ceramic Wax</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <!-- MVP SEDAN SILBER SERVICE CARD -->
+        <div class="price-card">
+          <h2 class="service-name">MVP<br><span class="sub-title">(AKA FULL DETAIL)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$120.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Includes All Star package</li>
+                <li>Leather seat conditiong</li>
+                <li>Carpet shampoo</li>
+                <li>Hand buffed Ceramic Wax</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
 
-       <!-- ROOKIE SEDAN SERVICE CARD -->
-       <div class="price-card">
-        <h2 class="service-name">ALL STAR<br><span class="sub-title">(AKA Q-TIP)</span></h2>
-        <div class="price-content">
-          <p class="price-tag">$35.00</p>
-          <div class="price-ul-wrapper">
-            <div class="price-ul"></div>
-          </div>
-          <div class="price-description-wrapper">
-            <ul class="price-description">
-              <li>Basic Exterior Wash</li>
-              <li>Interior Vacuum</li>
-              <li>Clean Windows</li>
-              <li>Light dash wipe down</li>
-              <li>Armor All tires</li>
-            </ul>
+      <!-- CROSSOVER SILBER SERVICES -->
+      <!-- CROSSOVER SILBER SERVICES -->
+      <!-- CROSSOVER SILBER SERVICES -->
+      <!-- CROSSOVER SILBER SERVICES -->
+      <div class="prices-wrapper" id="silber-crossover-prices">
+
+        <!-- ROOKIE SEDAN SILBER SERVICE CARD -->
+        <div class="price-card">
+          <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$37.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Basic Exterior Wash</li>
+                <li>Interior Vacuum</li>
+                <li>Clean Windows</li>
+                <li>Light dash wipe down</li>
+                <li>Armor All tires</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
+  
+         <!-- All STAR SEDAN SILBER SERVICE CARD -->
+         <div id="most-pop-plan" class="price-card">
+          <h2 class="pop-sign">Most Popular</h2>
+          <h2 class="service-name">ALL STAR<br><span class="sub-title">(AKA Q-TIP)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$52.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Includes Rookie package</li>
+                <li>Clean dash</li>
+                <li>Clean console</li>
+                <li>Clean door pockets</li>
+                <li>Clean door jams</li>
+                <li>Clean rubber mats</li>
+                <li>Armor all tires inside and out.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <!-- WASH & WAX SEDAN SILBER SERVICE CARD -->
+        <div class="price-card">
+          <h2 class="service-name">WASH & WAX<br><span class="sub-title">(AKA MINI DETAIL)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$80.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Includes All Star package</li>
+                <li>Hand Ceramic Wax</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <!-- MVP SEDAN SILBER SERVICE CARD -->
+        <div class="price-card">
+          <h2 class="service-name">MVP<br><span class="sub-title">(AKA FULL DETAIL)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$130.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Includes All Star package</li>
+                <li>Leather seat conditiong</li>
+                <li>Carpet shampoo</li>
+                <li>Hand buffed Ceramic Wax</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>  
+
+      <!-- SUV SILBER SERVICES -->
+      <!-- SUV SILBER SERVICES -->
+      <!-- SUV SILBER SERVICES -->
+      <!-- SUV SILBER SERVICES -->
+      <div class="prices-wrapper" id="silber-suv-prices">
+
+        <!-- ROOKIE SEDAN SILBER SERVICE CARD -->
+        <div class="price-card">
+          <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$40.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Basic Exterior Wash</li>
+                <li>Interior Vacuum</li>
+                <li>Clean Windows</li>
+                <li>Light dash wipe down</li>
+                <li>Armor All tires</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+         <!-- All STAR SEDAN SILBER SERVICE CARD -->
+         <div id="most-pop-plan" class="price-card">
+          <h2 class="pop-sign">Most Popular</h2>
+          <h2 class="service-name">ALL STAR<br><span class="sub-title">(AKA Q-TIP)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$56.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Includes Rookie package</li>
+                <li>Clean dash</li>
+                <li>Clean console</li>
+                <li>Clean door pockets</li>
+                <li>Clean door jams</li>
+                <li>Clean rubber mats</li>
+                <li>Armor all tires inside and out.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <!-- WASH & WAX SEDAN SILBER SERVICE CARD -->
+        <div class="price-card">
+          <h2 class="service-name">WASH & WAX<br><span class="sub-title">(AKA MINI DETAIL)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$90.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Includes All Star package</li>
+                <li>Hand Ceramic Wax</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <!-- MVP SEDAN SILBER SERVICE CARD -->
+        <div class="price-card">
+          <h2 class="service-name">MVP<br><span class="sub-title">(AKA FULL DETAIL)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$150.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Includes All Star package</li>
+                <li>Leather seat conditiong</li>
+                <li>Carpet shampoo</li>
+                <li>Hand buffed Ceramic Wax</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>  
 
 
-      <!-- SERVICE CARD -->
+      <!-- LARGE TRUCKS SILBER SERVICES -->
+      <!-- LARGE TRUCKS SILBER SERVICES -->
+      <!-- LARGE TRUCKS SILBER SERVICES -->
+      <!-- LARGE TRUCKS SILBER SERVICES -->
+      <div class="prices-wrapper" id="silber-lt-prices">
+
+        <!-- ROOKIE SEDAN SILBER SERVICE CARD -->
+        <div class="price-card">
+          <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$45.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Basic Exterior Wash</li>
+                <li>Interior Vacuum</li>
+                <li>Clean Windows</li>
+                <li>Light dash wipe down</li>
+                <li>Armor All tires</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+         <!-- All STAR SEDAN SILBER SERVICE CARD -->
+         <div id="most-pop-plan" class="price-card">
+          <h2 class="pop-sign">Most Popular</h2>
+          <h2 class="service-name">ALL STAR<br><span class="sub-title">(AKA Q-TIP)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$60.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Includes Rookie package</li>
+                <li>Clean dash</li>
+                <li>Clean console</li>
+                <li>Clean door pockets</li>
+                <li>Clean door jams</li>
+                <li>Clean rubber mats</li>
+                <li>Armor all tires inside and out.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <!-- WASH & WAX SEDAN SILBER SERVICE CARD -->
+        <div class="price-card">
+          <h2 class="service-name">WASH & WAX<br><span class="sub-title">(AKA MINI DETAIL)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$100.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Includes All Star package</li>
+                <li>Hand Ceramic Wax</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <!-- MVP SEDAN SILBER SERVICE CARD -->
+        <div class="price-card">
+          <h2 class="service-name">MVP<br><span class="sub-title">(AKA FULL DETAIL)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$170.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Includes All Star package</li>
+                <li>Leather seat conditiong</li>
+                <li>Carpet shampoo</li>
+                <li>Hand buffed Ceramic Wax</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- SERVICE CARD -->
+      </div>  
+
+
+      <!-- COMMERCIAL SILBER SERVICES -->
+      <!-- COMMERCIAL SILBER SERVICES -->
+      <!-- COMMERCIAL SILBER SERVICES -->
+      <!-- COMMERCIAL SILBER SERVICES -->
+      <div class="prices-wrapper" id="silber-comercial-prices">
+
+        <!-- ROOKIE SEDAN SILBER SERVICE CARD -->
+        <div class="price-card">
+          <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$55.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Basic Exterior Wash</li>
+                <li>Interior Vacuum</li>
+                <li>Clean Windows</li>
+                <li>Light dash wipe down</li>
+                <li>Armor All tires</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+         <!-- All STAR SEDAN SILBER SERVICE CARD -->
+         <div id="most-pop-plan" class="price-card">
+          <h2 class="pop-sign">Most Popular</h2>
+          <h2 class="service-name">ALL STAR<br><span class="sub-title">(AKA Q-TIP)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$70.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Includes Rookie package</li>
+                <li>Clean dash</li>
+                <li>Clean console</li>
+                <li>Clean door pockets</li>
+                <li>Clean door jams</li>
+                <li>Clean rubber mats</li>
+                <li>Armor all tires inside and out.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <!-- WASH & WAX SEDAN SILBER SERVICE CARD -->
+        <div class="price-card">
+          <h2 class="service-name">WASH & WAX<br><span class="sub-title">(AKA MINI DETAIL)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$120.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Includes All Star package</li>
+                <li>Hand Ceramic Wax</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+        <!-- MVP SEDAN SILBER SERVICE CARD -->
+        <div class="price-card">
+          <h2 class="service-name">MVP<br><span class="sub-title">(AKA FULL DETAIL)</span></h2>
+          <div class="price-content">
+            <p class="price-tag">$200.00</p>
+            <div class="price-ul-wrapper">
+              <div class="price-ul"></div>
+            </div>
+            <div class="price-description-wrapper">
+              <ul class="price-description">
+                <li>Includes All Star package</li>
+                <li>Leather seat conditiong</li>
+                <li>Carpet shampoo</li>
+                <li>Hand buffed Ceramic Wax</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </section>
+    
+    
+
+
+
+
+    <!-- WASHINGTON-SERVICES -->
      
   </section>
 
@@ -378,6 +797,54 @@
 
 
   <script>
+    let allServices = document.querySelectorAll('#all-silber-services .prices-wrapper')
+    let carSelections = document.querySelectorAll('.car-selection .car-slot')
+    const washingtonServices = document.getElementById('silber-services-wrapper');
+    
+    allServices.forEach(service => service.classList.add('not-selected-service'))
+
+    if (carSelections.length > 0) {
+      carSelections[0].classList.add('car-selected')
+      allServices[0].classList.remove('not-selected-service')
+    }
+
+    function carSelect(e) {
+
+      //get the clicked element
+      let clickedCard = e.target
+
+      // Remove 'selected' class from all items
+      carSelections.forEach(car => car.classList.remove('car-selected'))
+
+      clickedCard.classList.add('car-selected')
+
+      if(clickedCard == carSelections[0]) {
+        allServices.forEach(service => service.classList.add('not-selected-service'))
+        allServices[0].classList.remove('not-selected-service')
+      }
+      else if (clickedCard == carSelections[1]) {
+        allServices.forEach(service => service.classList.add('not-selected-service'))
+        allServices[1].classList.remove('not-selected-service')
+      }
+      else if (clickedCard == carSelections[2]) {
+        allServices.forEach(service => service.classList.add('not-selected-service'))
+        allServices[2].classList.remove('not-selected-service')
+      }
+      else if (clickedCard == carSelections[3]) {
+        allServices.forEach(service => service.classList.add('not-selected-service'))
+        allServices[3].classList.remove('not-selected-service')
+      }
+      else if (clickedCard == carSelections[4]) {
+        allServices.forEach(service => service.classList.add('not-selected-service'))
+        allServices[4].classList.remove('not-selected-service')
+      }
+    }
+
+    carSelections.forEach(car => {
+      car.addEventListener('click', carSelect)
+    })
+
+
     ////////// ZIP CODE FUNCTIONS /////////////
     const locations = [
       { name: "Sudz on Washington", lat: 29.770394, lon: -95.4217481 }, // Houston, TX
