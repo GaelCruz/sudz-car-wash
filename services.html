@@ -1510,6 +1510,7 @@
 
   <script>
     let categories = document.querySelectorAll('.categories li')
+    let allGessnerServices = document.querySelectorAll('#all-gessner-services .prices-wrapper')
     let allWashingtonServices = document.querySelectorAll('#all-washington-services .prices-wrapper')
     let allSilberServices = document.querySelectorAll('#all-silber-services .prices-wrapper')
     let carSelections = document.querySelectorAll('.car-selection .car-slot')
@@ -1530,6 +1531,8 @@
     allSilberServices.forEach(service => service.classList.add('not-selected-service'))
 
     allWashingtonServices.forEach(service => service.classList.add('not-selected-service'))
+
+    allGessnerServices.forEach(service => service.classList.add('not-selected-service'))
 
     allWashingtonServices[0].classList.remove('not-selected-service')
 
@@ -1563,16 +1566,23 @@
 
       if(clickedLocation == locationOptions[0]) {
         allSilberServices.forEach(service => service.classList.add('not-selected-service'))
+        allGessnerServices.forEach(service => service.classList.add('not-selected-service'))
         carSelections.forEach(car => car.classList.remove('car-selected'))
         carSelections[0].classList.add('car-selected')
         allWashingtonServices[0].classList.remove('not-selected-service')
       } else if (clickedLocation == locationOptions[1]) {
         allWashingtonServices.forEach(service => service.classList.add('not-selected-service'))
+        allGessnerServices.forEach(service => service.classList.add('not-selected-service'))
         carSelections.forEach(car => car.classList.remove('car-selected'))
-
         carSelections[0].classList.add('car-selected')
         allSilberServices[0].classList.remove('not-selected-service')
-      }
+      } else if (clickedLocation == locationOptions[2]) {
+        allWashingtonServices.forEach(service => service.classList.add('not-selected-service'))
+        allSilberServices.forEach(service => service.classList.add('not-selected-service'))
+        carSelections.forEach(car => car.classList.remove('car-selected'))
+        carSelections[0].classList.add('car-selected')
+        allGessnerServices[0].classList.remove('not-selected-service')
+      } 
     }
 
     locationOptions.forEach(location => {
@@ -1626,9 +1636,13 @@
           allWashingtonServices[4].classList.remove('not-selected-service')
         }
       }
-
-
-
+      // GESSNER SELECTIONS
+      if(locationOptions[2].classList.contains('selected-orange')) {
+        if(clickedCard == carSelections[0]) {
+          allGessnerServices.forEach(service => service.classList.add('not-selected-service'))
+          allGessnerServices[0].classList.remove('not-selected-service')
+        } 
+      }
     }
     carSelections.forEach(car => {
       car.addEventListener('click', carSelect)
