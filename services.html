@@ -57,7 +57,7 @@
       flex-direction: column;
       justify-content: space-evenly;
     }
-    #blue-btn {
+    .blue-btn {
       color: var(--blue-color);
       cursor: pointer;
       list-style: none;
@@ -67,7 +67,7 @@
       padding: 8px 10px 8px 10px;
       transition: .3s ease-in-out;
     }
-    #orange-btn{
+    .orange-btn{
       color: var(--orage-color);
       cursor: pointer;
       list-style: none;
@@ -78,7 +78,7 @@
       transition: .3s ease-in-out;
     }
 
-    #blue-btn:hover {
+    .blue-btn:hover {
     cursor: pointer;
     list-style: none;
     background-color: var(--blue-color);
@@ -87,7 +87,7 @@
     padding: 8px 10px 8px 10px;
     transition: .3s ease-in-out;
     }
-    #orange-btn:hover {
+    .orange-btn:hover {
     cursor: pointer;
     list-style: none;
     background-color: var(--dark-orange-bg);
@@ -140,7 +140,7 @@
       /* border: #0071BC solid; */
       gap: 0.5px;
     }
-    .categories li{
+    .category{
       border-radius:4px;
       border: solid 2px ;
       width: 100%;
@@ -198,6 +198,28 @@
 
 
     /* SERVICES SELECTION */
+
+    #all-gessner-services .service-name{
+      background-color: var(--orage-color);
+      color: var(--dark-orange-bg); 
+    }
+
+    #all-gessner-services .price-tag{
+      color: var(--orage-color);
+    }
+
+    #all-gessner-services .price-card{
+      background-color: var(--dark-orange-bg);
+    }
+
+    #all-washington-services .prices-wrapper{
+      flex-wrap: wrap;
+    }
+
+    #all-washington-services .price-card{
+      width: 23rem;
+    }
+
     .prices-wrapper{
       opacity: 1;
       margin-top: 2rem;
@@ -251,6 +273,9 @@
       background-color: var(--blue-color);
       width: 80%;
     }
+    #all-gessner-services .price-ul{
+      background-color: var(--orage-color);
+    }
     .price-description-wrapper{
       display: flex;
       justify-content: start;
@@ -264,6 +289,9 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
+    }
+    #all-gessner-services .price-description{
+      color: var(--orage-color);
     }
     #most-pop-plan{
       position: relative;
@@ -283,6 +311,39 @@
       transition: opacity 0.3s ease-in-out;
     }
 
+    .not-selected-blue {
+      color: var(--blue-color);
+      cursor: pointer;
+      list-style: none;
+      border: solid 2px;
+      border-color: var(--blue-color);
+      border-radius: 4px;
+      padding: 8px 10px 8px 10px;
+      transition: .3s ease-in-out;
+    }
+
+    .selected-blue{
+      cursor: pointer;
+      list-style: none;
+      background-color: var(--blue-color);
+      color: white;
+      border-radius: 4px;
+      /* padding: 8px 10px 8px 10px; */
+      transition: .3s ease-in-out;
+    }
+
+    .selected-orange{
+      cursor: pointer;
+      list-style: none;
+      color: var(--orage-color);
+      background-color: var(--dark-orange-bg);
+      border-radius: 4px;
+      padding: 8px 10px 8px 10px;
+      transition: .3s ease-in-out;
+    }
+
+
+
   </style>
 
   <section>
@@ -292,10 +353,10 @@
         <div class="location-and-finder">
           <div class="location-options">
             <p>Choose a location</p>
-            <ul>
-              <li id="blue-btn">Sudz on Washington</li>
-              <li id="blue-btn">Sudz on Silber</li>
-              <li id="orange-btn">Sudz on Gessner</li>
+            <ul id="sudz-locations">
+              <li class="blue-btn">Sudz on Washington</li>
+              <li class="blue-btn">Sudz on Silber</li>
+              <li class="orange-btn">Sudz on Gessner</li>
             </ul>
           </div>
           <div class="zipcode-container">
@@ -310,11 +371,11 @@
 
     <!-- CATEGORIES SECTION -->
     <section>
-       <ul class="categories">
-        <li>Washes</li>
-        <li>Ceramic Coating</li>
-        <li>Extras</li>
-       </ul>
+      <ul class="categories">
+        <li class="category">Washes</li>
+        <li class="category">Ceramic Coating</li>
+        <li class="category">Extras</li>
+      </ul>
     </section>
 
 
@@ -782,31 +843,225 @@
         </div>
       </div>  
     </section>
-    
-    
+  </section>
 
 
+  <!-- ALL WASHINGTON SERVICES -->
+  <!-- ALL WASHINGTON SERVICES -->
+  <!-- ALL WASHINGTON SERVICES -->
+  <!-- ALL WASHINGTON SERVICES -->
+  <section id="all-washington-services">
+    <div class="prices-wrapper">
+      <div class="price-card">
+        <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+        <div class="price-content">
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+          <div class="price-description-wrapper">
+            <ul class="price-description">
+              <li>Basic Exterior Wash</li>
+              <li>Interior Vacuum</li>
+              <li>Clean Windows</li>
+              <li>Light dash wipe down</li>
+              <li>Armor All tires</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+        <div class="price-content">
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+          <div class="price-description-wrapper">
+            <ul class="price-description">
+              <li>Basic Exterior Wash</li>
+              <li>Interior Vacuum</li>
+              <li>Clean Windows</li>
+              <li>Light dash wipe down</li>
+              <li>Armor All tires</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+        <div class="price-content">
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+          <div class="price-description-wrapper">
+            <ul class="price-description">
+              <li>Basic Exterior Wash</li>
+              <li>Interior Vacuum</li>
+              <li>Clean Windows</li>
+              <li>Light dash wipe down</li>
+              <li>Armor All tires</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
 
-    <!-- WASHINGTON-SERVICES -->
-     
+      <div class="price-card">
+        <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+        <div class="price-content">
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+          <div class="price-description-wrapper">
+            <ul class="price-description">
+              <li>Basic Exterior Wash</li>
+              <li>Interior Vacuum</li>
+              <li>Clean Windows</li>
+              <li>Light dash wipe down</li>
+              <li>Armor All tires</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+        <div class="price-content">
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+          <div class="price-description-wrapper">
+            <ul class="price-description">
+              <li>Basic Exterior Wash</li>
+              <li>Interior Vacuum</li>
+              <li>Clean Windows</li>
+              <li>Light dash wipe down</li>
+              <li>Armor All tires</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+        <div class="price-content">
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+          <div class="price-description-wrapper">
+            <ul class="price-description">
+              <li>Basic Exterior Wash</li>
+              <li>Interior Vacuum</li>
+              <li>Clean Windows</li>
+              <li>Light dash wipe down</li>
+              <li>Armor All tires</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- GESSNER SERVICES -->
+  <section id="all-gessner-services">
+    <div class="prices-wrapper">
+      <div class="price-card">
+        <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+        <div class="price-content">
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+          <div class="price-description-wrapper">
+            <ul class="price-description">
+              <li>Basic Exterior Wash</li>
+              <li>Interior Vacuum</li>
+              <li>Clean Windows</li>
+              <li>Light dash wipe down</li>
+              <li>Armor All tires</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
 
 
-
-
   <script>
-    let allServices = document.querySelectorAll('#all-silber-services .prices-wrapper')
+    let categories = document.querySelectorAll('.categories li')
+    let allWashingtonServices = document.querySelectorAll('#all-washington-services .prices-wrapper')
+    let allSilberServices = document.querySelectorAll('#all-silber-services .prices-wrapper')
     let carSelections = document.querySelectorAll('.car-selection .car-slot')
-    const washingtonServices = document.getElementById('silber-services-wrapper');
+    let locationOptions = document.querySelectorAll('#sudz-locations li')
+
+    function categorySelect(e) {
+      let clickedCategory = e.target;
+
+      categories.forEach(category => category.classList.remove('selected-blue'))
+
+      clickedCategory.classList.add('selected-blue')
+    }
+
+    categories.forEach(category => {
+      category.addEventListener('click', categorySelect)
+    })
     
-    allServices.forEach(service => service.classList.add('not-selected-service'))
+    allSilberServices.forEach(service => service.classList.add('not-selected-service'))
 
     if (carSelections.length > 0) {
       carSelections[0].classList.add('car-selected')
-      allServices[0].classList.remove('not-selected-service')
+      allSilberServices[0].classList.remove('not-selected-service')
     }
+
+    if(locationOptions.length > 0) {
+      locationOptions[0].classList.add('selected-blue')
+      categories[0].classList.add('selected-blue')
+      allSilberServices.forEach(service => service.classList.add('not-selected-service'))
+    }
+
+    function selectedLocation(e) {
+      let clickedLocation = e.target
+
+      locationOptions.forEach(location => 
+        location.classList.remove('selected-blue')
+      )
+
+      locationOptions.forEach(location => location.classList.remove('selected-orange'))
+
+      locationOptions.forEach(location => location.classList.remove('blue-button'))
+
+      clickedLocation.classList.add('selected-blue')
+
+      if(clickedLocation == locationOptions[2]) {
+        clickedLocation.classList.add('selected-orange')
+      }
+
+      if(clickedLocation == locationOptions[0]) {
+        allSilberServices.forEach(service => service.classList.add('not-selected-service'))
+        carSelections.forEach(car => car.classList.remove('car-selected'))
+        carSelections[0].classList.add('car-selected')
+        allWashingtonServices[0].classList.remove('not-selected-service')
+      } else if (clickedLocation == locationOptions[1]) {
+        allWashingtonServices.forEach(service => service.classList.add('not-selected-service'))
+        carSelections.forEach(car => car.classList.remove('car-selected'))
+
+        carSelections[0].classList.add('car-selected')
+        allSilberServices[0].classList.remove('not-selected-service')
+      }
+    }
+
+    locationOptions.forEach(location => {
+      location.addEventListener('click', selectedLocation)
+    })
 
     function carSelect(e) {
 
@@ -818,33 +1073,35 @@
 
       clickedCard.classList.add('car-selected')
 
-      if(clickedCard == carSelections[0]) {
-        allServices.forEach(service => service.classList.add('not-selected-service'))
-        allServices[0].classList.remove('not-selected-service')
+      if(locationOptions[1].classList.contains('selected-blue')) {
+        if(clickedCard == carSelections[0]) {
+          allSilberServices.forEach(service => service.classList.add('not-selected-service'))
+          allSilberServices[0].classList.remove('not-selected-service')
+        } else if (clickedCard == carSelections[1]){
+          allSilberServices.forEach(service => service.classList.add('not-selected-service'))
+          allSilberServices[1].classList.remove('not-selected-service')
+        }else if (clickedCard == carSelections[2]){
+          allSilberServices.forEach(service => service.classList.add('not-selected-service'))
+          allSilberServices[2].classList.remove('not-selected-service')
+        }else if (clickedCard == carSelections[3]){
+          allSilberServices.forEach(service => service.classList.add('not-selected-service'))
+          allSilberServices[3].classList.remove('not-selected-service')
+        }else if (clickedCard == carSelections[4]){
+          allSilberServices.forEach(service => service.classList.add('not-selected-service'))
+          allSilberServices[4].classList.remove('not-selected-service')
+        }
       }
-      else if (clickedCard == carSelections[1]) {
-        allServices.forEach(service => service.classList.add('not-selected-service'))
-        allServices[1].classList.remove('not-selected-service')
-      }
-      else if (clickedCard == carSelections[2]) {
-        allServices.forEach(service => service.classList.add('not-selected-service'))
-        allServices[2].classList.remove('not-selected-service')
-      }
-      else if (clickedCard == carSelections[3]) {
-        allServices.forEach(service => service.classList.add('not-selected-service'))
-        allServices[3].classList.remove('not-selected-service')
-      }
-      else if (clickedCard == carSelections[4]) {
-        allServices.forEach(service => service.classList.add('not-selected-service'))
-        allServices[4].classList.remove('not-selected-service')
-      }
-    }
 
+    }
     carSelections.forEach(car => {
       car.addEventListener('click', carSelect)
     })
 
 
+    ////////// ZIP CODE FUNCTIONS /////////////
+    ////////// ZIP CODE FUNCTIONS /////////////
+    ////////// ZIP CODE FUNCTIONS /////////////
+    ////////// ZIP CODE FUNCTIONS /////////////
     ////////// ZIP CODE FUNCTIONS /////////////
     const locations = [
       { name: "Sudz on Washington", lat: 29.770394, lon: -95.4217481 }, // Houston, TX
