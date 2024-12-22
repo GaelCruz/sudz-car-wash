@@ -342,6 +342,20 @@
       transition: .3s ease-in-out;
     }
 
+    #washington-ceramic-coating .ceramic-time{
+      text-align: center;
+      font-size: 1.5rem;
+      color: var(--blue-color);
+    }
+
+    #washington-ceramic-coating .price-card{
+      width: 25rem;
+    }
+
+    #washington-ceramic-coating{
+      display: none;
+    }
+
 
 
   </style>
@@ -1506,6 +1520,91 @@
     </div>
   </section>
 
+  <section id="washington-ceramic-coating">
+    <div class="prices-wrapper">
+      <div class="price-card">
+        <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+        <div class="price-content">
+          <p class="ceramic-time">1 year</p>
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+  
+        <div class="price-content">
+          <p class="ceramic-time">1 year</p>
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+  
+        <div class="price-content">
+          <p class="ceramic-time">1 year</p>
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+        <div class="price-content">
+          <p class="ceramic-time">1 year</p>
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+  
+        <div class="price-content">
+          <p class="ceramic-time">1 year</p>
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+  
+        <div class="price-content">
+          <p class="ceramic-time">1 year</p>
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+        <div class="price-content">
+          <p class="ceramic-time">1 year</p>
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+  
+        <div class="price-content">
+          <p class="ceramic-time">1 year</p>
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+  
+        <div class="price-content">
+          <p class="ceramic-time">1 year</p>
+          <p class="price-tag">$45.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
 
   <script>
@@ -1565,6 +1664,9 @@
       }
 
       if(clickedLocation == locationOptions[0]) {
+        if(categories[0].classList.contains('selected-blue')){
+          console.log('teest')
+        }
         allSilberServices.forEach(service => service.classList.add('not-selected-service'))
         allGessnerServices.forEach(service => service.classList.add('not-selected-service'))
         carSelections.forEach(car => car.classList.remove('car-selected'))
@@ -1715,7 +1817,7 @@
       } catch (error) {
         console.error("Error:", error);
         document.getElementById("result").innerText = "Invalid ZIP code.";
-      }ß
+      }
     }
   </script>
 </body>
