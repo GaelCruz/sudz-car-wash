@@ -352,7 +352,7 @@
       width: 25rem;
     }
 
-    #washington-ceramic-coating{
+    .no-display{
       display: none;
     }
 
@@ -1520,83 +1520,29 @@
     </div>
   </section>
 
-  <section id="washington-ceramic-coating">
+  <section id="washington-extras class="no-display">
     <div class="prices-wrapper">
       <div class="price-card">
-        <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
+        <h2 class="service-name">SMALL</h2>
         <div class="price-content">
           <p class="ceramic-time">1 year</p>
-          <p class="price-tag">$45.00</p>
+          <p class="price-tag">$600.00</p>
           <div class="price-ul-wrapper">
             <div class="price-ul"></div>
           </div>
         </div>
   
         <div class="price-content">
-          <p class="ceramic-time">1 year</p>
-          <p class="price-tag">$45.00</p>
+          <p class="ceramic-time">2 year</p>
+          <p class="price-tag">$1000.00</p>
           <div class="price-ul-wrapper">
             <div class="price-ul"></div>
           </div>
         </div>
   
         <div class="price-content">
-          <p class="ceramic-time">1 year</p>
-          <p class="price-tag">$45.00</p>
-          <div class="price-ul-wrapper">
-            <div class="price-ul"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="price-card">
-        <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
-        <div class="price-content">
-          <p class="ceramic-time">1 year</p>
-          <p class="price-tag">$45.00</p>
-          <div class="price-ul-wrapper">
-            <div class="price-ul"></div>
-          </div>
-        </div>
-  
-        <div class="price-content">
-          <p class="ceramic-time">1 year</p>
-          <p class="price-tag">$45.00</p>
-          <div class="price-ul-wrapper">
-            <div class="price-ul"></div>
-          </div>
-        </div>
-  
-        <div class="price-content">
-          <p class="ceramic-time">1 year</p>
-          <p class="price-tag">$45.00</p>
-          <div class="price-ul-wrapper">
-            <div class="price-ul"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="price-card">
-        <h2 class="service-name">ROOKIE<br><span class="sub-title">(AKA BASIC WASH)</span></h2>
-        <div class="price-content">
-          <p class="ceramic-time">1 year</p>
-          <p class="price-tag">$45.00</p>
-          <div class="price-ul-wrapper">
-            <div class="price-ul"></div>
-          </div>
-        </div>
-  
-        <div class="price-content">
-          <p class="ceramic-time">1 year</p>
-          <p class="price-tag">$45.00</p>
-          <div class="price-ul-wrapper">
-            <div class="price-ul"></div>
-          </div>
-        </div>
-  
-        <div class="price-content">
-          <p class="ceramic-time">1 year</p>
-          <p class="price-tag">$45.00</p>
+          <p class="ceramic-time">5 year</p>
+          <p class="price-tag">$1400.00</p>
           <div class="price-ul-wrapper">
             <div class="price-ul"></div>
           </div>
@@ -1608,20 +1554,14 @@
 
 
   <script>
+    let washingtonCeramicCoating = document.querySelector('#washington-ceramic-coating')
+    let carType = document.querySelectorAll('.car-selection .car-type')
     let categories = document.querySelectorAll('.categories li')
     let allGessnerServices = document.querySelectorAll('#all-gessner-services .prices-wrapper')
     let allWashingtonServices = document.querySelectorAll('#all-washington-services .prices-wrapper')
     let allSilberServices = document.querySelectorAll('#all-silber-services .prices-wrapper')
     let carSelections = document.querySelectorAll('.car-selection .car-slot')
     let locationOptions = document.querySelectorAll('#sudz-locations li')
-
-    function categorySelect(e) {
-      let clickedCategory = e.target;
-
-      categories.forEach(category => category.classList.remove('selected-blue'))
-
-      clickedCategory.classList.add('selected-blue')
-    }
 
     categories.forEach(category => {
       category.addEventListener('click', categorySelect)
@@ -1646,9 +1586,32 @@
       allSilberServices.forEach(service => service.classList.add('not-selected-service'))
     }
 
+    function categorySelect(e) {
+      let clickedCategory = e.target;
+
+      categories.forEach(category => category.classList.remove('selected-blue'))
+
+      clickedCategory.classList.add('selected-blue')
+
+      if(locationOptions[0].classList.contains('selected-blue')){
+        if(categories[0].classList.contains('selected-blue')){
+          allWashingtonServices[0].classList.remove('not-selected-service')
+          carSelections.forEach(carSelect => carSelect.classList.remove('not-selected-service'))
+          carType.forEach(carSelect => carSelect.classList.remove('not-selected-service'))
+          washingtonCeramicCoating.classList.add('no-display')
+
+
+        } else if (categories[1].classList.contains('selected-blue')){
+          allWashingtonServices.forEach(service => service.classList.add('not-selected-service'))
+          carSelections.forEach(carSelect => carSelect.classList.add('not-selected-service'))
+          carType.forEach(carSelect => carSelect.classList.add('not-selected-service'))
+          washingtonCeramicCoating.classList.remove('no-display')
+        }
+      }
+    }
+
     function selectedLocation(e) {
       let clickedLocation = e.target
-
       locationOptions.forEach(location => 
         location.classList.remove('selected-blue')
       )
@@ -1664,9 +1627,7 @@
       }
 
       if(clickedLocation == locationOptions[0]) {
-        if(categories[0].classList.contains('selected-blue')){
-          console.log('teest')
-        }
+        console.log('washington')
         allSilberServices.forEach(service => service.classList.add('not-selected-service'))
         allGessnerServices.forEach(service => service.classList.add('not-selected-service'))
         carSelections.forEach(car => car.classList.remove('car-selected'))
@@ -1685,6 +1646,11 @@
         carSelections[0].classList.add('car-selected')
         allGessnerServices[0].classList.remove('not-selected-service')
       } 
+
+
+      if(categories[1].classList.contains('selected-blue')){
+        console.log('hello')
+      }
     }
 
     locationOptions.forEach(location => {
