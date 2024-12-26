@@ -1520,7 +1520,92 @@
     </div>
   </section>
 
-  <section id="washington-extras class="no-display">
+  <section id="washington-ceramic-coating" class="no-display">
+    <div class="prices-wrapper">
+      <div class="price-card">
+        <h2 class="service-name">SMALL</h2>
+        <div class="price-content">
+          <p class="ceramic-time">1 year</p>
+          <p class="price-tag">$600.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+  
+        <div class="price-content">
+          <p class="ceramic-time">2 year</p>
+          <p class="price-tag">$1000.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+  
+        <div class="price-content">
+          <p class="ceramic-time">5 year</p>
+          <p class="price-tag">$1400.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <h2 class="service-name">MEDIUM</h2>
+        <div class="price-content">
+          <p class="ceramic-time">1 year</p>
+          <p class="price-tag">$700.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+  
+        <div class="price-content">
+          <p class="ceramic-time">2 year</p>
+          <p class="price-tag">$1100.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+  
+        <div class="price-content">
+          <p class="ceramic-time">5 year</p>
+          <p class="price-tag">$1600.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <h2 class="service-name">LARGE</h2>
+        <div class="price-content">
+          <p class="ceramic-time">1 year</p>
+          <p class="price-tag">$800.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+  
+        <div class="price-content">
+          <p class="ceramic-time">2 year</p>
+          <p class="price-tag">$1600.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+  
+        <div class="price-content">
+          <p class="ceramic-time">5 year</p>
+          <p class="price-tag">$1800.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="washington-extras" class="no-display">
     <div class="prices-wrapper">
       <div class="price-card">
         <h2 class="service-name">SMALL</h2>
@@ -1552,9 +1637,9 @@
   </section>
 
 
-
   <script>
     let washingtonCeramicCoating = document.querySelector('#washington-ceramic-coating')
+    let washingtonExtras = document.querySelector('#washington-extras')
     let carType = document.querySelectorAll('.car-selection .car-type')
     let categories = document.querySelectorAll('.categories li')
     let allGessnerServices = document.querySelectorAll('#all-gessner-services .prices-wrapper')
@@ -1606,6 +1691,12 @@
           carSelections.forEach(carSelect => carSelect.classList.add('not-selected-service'))
           carType.forEach(carSelect => carSelect.classList.add('not-selected-service'))
           washingtonCeramicCoating.classList.remove('no-display')
+        } else if (categories[2].classList.contains('selected-blue')){
+          allWashingtonServices.forEach(service => service.classList.add('not-selected-service'))
+          carSelections.forEach(carSelect => carSelect.classList.add('not-selected-service'))
+          carType.forEach(carSelect => carSelect.classList.add('not-selected-service'))
+          washingtonCeramicCoating.classList.add('no-display')
+          washingtonExtras.classList.remove('no-display')
         }
       }
     }
