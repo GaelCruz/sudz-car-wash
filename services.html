@@ -342,7 +342,7 @@
       transition: .3s ease-in-out;
     }
 
-    #washington-ceramic-coating .ceramic-time{
+    .ceramic-time{
       text-align: center;
       font-size: 1.5rem;
       color: var(--blue-color);
@@ -354,6 +354,10 @@
 
     .no-display{
       display: none;
+    }
+
+    #washington-extras .price-card{
+      width: 40rem;
     }
 
 
@@ -1610,7 +1614,7 @@
       <div class="price-card">
         <h2 class="service-name">SMALL</h2>
         <div class="price-content">
-          <p class="ceramic-time">1 year</p>
+          <p class="ceramic-time">Truck Beds</p>
           <p class="price-tag">$600.00</p>
           <div class="price-ul-wrapper">
             <div class="price-ul"></div>
@@ -1618,7 +1622,7 @@
         </div>
   
         <div class="price-content">
-          <p class="ceramic-time">2 year</p>
+          <p class="ceramic-time">Rubber Mats</p>
           <p class="price-tag">$1000.00</p>
           <div class="price-ul-wrapper">
             <div class="price-ul"></div>
@@ -1626,7 +1630,15 @@
         </div>
   
         <div class="price-content">
-          <p class="ceramic-time">5 year</p>
+          <p class="ceramic-time">Bumper & Trim</p>
+          <p class="price-tag">$1400.00</p>
+          <div class="price-ul-wrapper">
+            <div class="price-ul"></div>
+          </div>
+        </div>
+
+        <div class="price-content">
+          <p class="ceramic-time">Carpet & Mat</p>
           <p class="price-tag">$1400.00</p>
           <div class="price-ul-wrapper">
             <div class="price-ul"></div>
@@ -1678,19 +1690,22 @@
 
       clickedCategory.classList.add('selected-blue')
 
+      // Check which location the user is looking at
       if(locationOptions[0].classList.contains('selected-blue')){
+
+        // Show the information correlating to the current category.
         if(categories[0].classList.contains('selected-blue')){
           allWashingtonServices[0].classList.remove('not-selected-service')
           carSelections.forEach(carSelect => carSelect.classList.remove('not-selected-service'))
           carType.forEach(carSelect => carSelect.classList.remove('not-selected-service'))
           washingtonCeramicCoating.classList.add('no-display')
-
-
+          washingtonExtras.classList.add('no-display')
         } else if (categories[1].classList.contains('selected-blue')){
           allWashingtonServices.forEach(service => service.classList.add('not-selected-service'))
           carSelections.forEach(carSelect => carSelect.classList.add('not-selected-service'))
           carType.forEach(carSelect => carSelect.classList.add('not-selected-service'))
           washingtonCeramicCoating.classList.remove('no-display')
+          washingtonExtras.classList.add('no-display')
         } else if (categories[2].classList.contains('selected-blue')){
           allWashingtonServices.forEach(service => service.classList.add('not-selected-service'))
           carSelections.forEach(carSelect => carSelect.classList.add('not-selected-service'))
