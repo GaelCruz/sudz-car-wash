@@ -348,7 +348,7 @@
       color: var(--blue-color);
     }
 
-    #washington-ceramic-coating .price-card{
+    #ceramic-coating .price-card{
       width: 25rem;
     }
 
@@ -356,7 +356,7 @@
       display: none;
     }
 
-    #washington-extras .price-card{
+    #silber-extras .price-card{
       width: 40rem;
     }
 
@@ -1524,7 +1524,7 @@
     </div>
   </section>
 
-  <section id="washington-ceramic-coating" class="no-display">
+  <section id="ceramic-coating" class="no-display">
     <div class="prices-wrapper">
       <div class="price-card">
         <h2 class="service-name">SMALL</h2>
@@ -1609,7 +1609,9 @@
     </div>
   </section>
 
-  <section id="washington-extras" class="no-display">
+
+
+  <section id="silber-extras" class="no-display">
     <div class="prices-wrapper">
       <div class="price-card">
         <h2 class="service-name">SMALL</h2>
@@ -1650,8 +1652,8 @@
 
 
   <script>
-    let washingtonCeramicCoating = document.querySelector('#washington-ceramic-coating')
-    let washingtonExtras = document.querySelector('#washington-extras')
+    let ceramicCoating = document.querySelector('#ceramic-coating')
+    let silberExtras = document.querySelector('#silber-extras')
     let carType = document.querySelectorAll('.car-selection .car-type')
     let categories = document.querySelectorAll('.categories li')
     let allGessnerServices = document.querySelectorAll('#all-gessner-services .prices-wrapper')
@@ -1672,6 +1674,9 @@
 
     allWashingtonServices[0].classList.remove('not-selected-service')
 
+    // On start remove the 'extras' category
+    categories[2].classList.add('no-display')
+
     if (carSelections.length > 0) {
       carSelections[0].classList.add('car-selected')
       allSilberServices[0].classList.remove('not-selected-service')
@@ -1683,6 +1688,8 @@
       allSilberServices.forEach(service => service.classList.add('not-selected-service'))
     }
 
+    
+
     function categorySelect(e) {
       let clickedCategory = e.target;
 
@@ -1692,26 +1699,80 @@
 
       // Check which location the user is looking at
       if(locationOptions[0].classList.contains('selected-blue')){
+        
 
         // Show the information correlating to the current category.
         if(categories[0].classList.contains('selected-blue')){
+
+          resetCategories()
+
           allWashingtonServices[0].classList.remove('not-selected-service')
-          carSelections.forEach(carSelect => carSelect.classList.remove('not-selected-service'))
-          carType.forEach(carSelect => carSelect.classList.remove('not-selected-service'))
-          washingtonCeramicCoating.classList.add('no-display')
-          washingtonExtras.classList.add('no-display')
+          addCarSelection()
+          resetCategories()
+          ceramicCoating.classList.add('no-display')
+          silberExtras.classList.add('no-display')
+
+
         } else if (categories[1].classList.contains('selected-blue')){
+
           allWashingtonServices.forEach(service => service.classList.add('not-selected-service'))
           carSelections.forEach(carSelect => carSelect.classList.add('not-selected-service'))
           carType.forEach(carSelect => carSelect.classList.add('not-selected-service'))
-          washingtonCeramicCoating.classList.remove('no-display')
-          washingtonExtras.classList.add('no-display')
+          ceramicCoating.classList.remove('no-display')
+          silberExtras.classList.add('no-display')
+
+        } 
+      }
+
+      // If Location is set for Silber 
+      if(locationOptions[1].classList.contains('selected-blue')){
+        
+        // If location is set for silber then show the categories for Silber location
+        addCarSelection()
+
+        // If "washes" category is selected
+        if(categories[0].classList.contains('selected-blue')){
+
+          // Add all the silber services
+          allSilberServices[0].classList.remove('not-selected-service')
+          
+          // reset the category back to 'washes'
+          resetCategories()
+          
+          // Add the car selections and reset the car selections
+          addCarSelection()
+          
+          // Remove the ceramic coating options
+          ceramicCoating.classList.add('no-display')
+          
+          // Remove the extras options
+          silberExtras.classList.add('no-display')
+          // Check if Ceramic Coating options is selected
+        } else if (categories[1].classList.contains('selected-blue')) {
+
+          // Add all the silber services
+          allSilberServices.forEach(service => service.classList.add('not-selected-service'))
+
+
+          // remove the car selections
+          carSelections.forEach(carSelect => carSelect.classList.add('not-selected-service'))
+
+          // remove all the Car type titles
+          carType.forEach(carSelect => carSelect.classList.add('not-selected-service'))
+
+          // Remove the ceramic coating options
+          ceramicCoating.classList.remove('no-display')
+
+          // Remove the extras options
+          silberExtras.classList.add('no-display')
+        
+          // Check if 'extras' category is selected
         } else if (categories[2].classList.contains('selected-blue')){
-          allWashingtonServices.forEach(service => service.classList.add('not-selected-service'))
+          allSilberServices.forEach(service => service.classList.add('not-selected-service'))
           carSelections.forEach(carSelect => carSelect.classList.add('not-selected-service'))
           carType.forEach(carSelect => carSelect.classList.add('not-selected-service'))
-          washingtonCeramicCoating.classList.add('no-display')
-          washingtonExtras.classList.remove('no-display')
+          ceramicCoating.classList.add('no-display')
+          silberExtras.classList.remove('no-display')
         }
       }
     }
@@ -1732,14 +1793,40 @@
         clickedLocation.classList.add('selected-orange')
       }
 
+      // Check if 'Washington' location is selected
       if(clickedLocation == locationOptions[0]) {
-        console.log('washington')
+
+        // Reset the 'categories' section to washes
+        resetCategories()
+
+        // hide whatever service was being shown prior
+        resetWashingtonLocationSelect()
+
+
+         // Remove the 'extras' category if washington location is selected
+         categories[2].classList.add('no-display')
+
+        // Remove the "silber" and "Gessner" Services
         allSilberServices.forEach(service => service.classList.add('not-selected-service'))
         allGessnerServices.forEach(service => service.classList.add('not-selected-service'))
+
+        // Remove the Silber Ceramic Coating and extras
+        silberExtras.classList.add('no-display')
+        removeCeramicCoating()
+        
+        
+        // Add the Washington Services
+        allWashingtonServices[0].classList.remove('not-selected-service')
+        
+        // Reset the Car selection
         carSelections.forEach(car => car.classList.remove('car-selected'))
         carSelections[0].classList.add('car-selected')
-        allWashingtonServices[0].classList.remove('not-selected-service')
+
+
+
       } else if (clickedLocation == locationOptions[1]) {
+         // add the 'extras' category if silber location is selected
+         categories[2].classList.remove('no-display')
         allWashingtonServices.forEach(service => service.classList.add('not-selected-service'))
         allGessnerServices.forEach(service => service.classList.add('not-selected-service'))
         carSelections.forEach(car => car.classList.remove('car-selected'))
@@ -1751,11 +1838,6 @@
         carSelections.forEach(car => car.classList.remove('car-selected'))
         carSelections[0].classList.add('car-selected')
         allGessnerServices[0].classList.remove('not-selected-service')
-      } 
-
-
-      if(categories[1].classList.contains('selected-blue')){
-        console.log('hello')
       }
     }
 
@@ -1856,6 +1938,8 @@
       return R * c; // Distance in km
     }
 
+
+
     async function findNearestCarWash() {
       const zipCode = document.getElementById("zipcode").value;
 
@@ -1891,6 +1975,62 @@
         document.getElementById("result").innerText = "Invalid ZIP code.";
       }
     }
+
+
+
+
+
+
+
+
+
+
+    function removeCeramicCoating(){
+      ceramicCoating.forEach(card => card.classList.add('no-display'))
+    }
+
+    function resetCategories() {
+      categories.forEach(category => category.classList.remove('selected-blue'))
+      categories[0].classList.add('selected-blue')
+    }
+
+    function addCarSelection(){
+      // show the selection and reset the selection back to the beginning.
+      carSelections.forEach(carSelect => carSelect.classList.remove('not-selected-service'))
+      carSelections.forEach(carSelect => carSelect.classList.remove('car-selected'))
+      carSelections[0].classList.add('car-selected')
+
+      // add the car titles back
+      carType.forEach(carSelect => carSelect.classList.remove('not-selected-service'))
+    }
+
+    function removeCarSelection(){
+      carSelections.forEach(carSelect => carSelect.classList.add('not-selected-service'))
+      carType.forEach(carSelect => carSelect.classList.add('not-selected-service'))
+    }
+
+    function resetWashingtonLocationSelect(){
+      // Show the washington services
+      allWashingtonServices[0].classList.remove('not-selected-service')
+      // Add car selection
+      addCarSelection()
+
+      // Hide the other categories
+      ceramicCoating.classList.add('no-display')
+      silberExtras.classList.add('no-display')
+    }
+
+    function resetSilberLocation() {
+      //show silber services
+      allSilberServices[0].classList.remove('not-selected-service')
+      // Add car selection
+      addCarSelection()
+      
+       // Hide the other categories
+      ceramicCoating.classList.add('no-display')
+      silberExtras.classList.add('no-display')
+    }
+
   </script>
 </body>
 </html>
